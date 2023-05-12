@@ -1,0 +1,84 @@
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet"
+	  href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+</head>
+<body>
+	<br>
+	<div class="container">
+		<div class="card">
+			<div class="card-header text-center">
+				<h3>Adicionar Projeto</h3>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/cronograma/salvar}" method="POST" id="formCronograma">
+					<div class="row">
+						<div class="col-2">
+							<label for="nome"><b>Nome</b></label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="nome" id="nome" class="form-control" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-2">
+							<label for="atividade"><b>Atividade</b></label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="atividade" id="atividade"
+								   class="form-control" />
+						</div>
+					</div>
+					<br />
+					<div class="row">
+						<div class="col-2">
+							<label for="responsavel"><b>Responsavel</b></label>
+						</div>
+						<div class="col-4">
+							<input type="text" name="responsavel" id="responsavel" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<label for="dataInicio"><b>Data Início</b></label>
+						</div>
+						<div class="col-4">
+							<input type="date" name="dataInicio" id="dataInicio" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<label for="dataFinal"><b>Data Final</b></label>
+						</div>
+						<div class="col-4">
+							<input type="date" name="dataFinal" id="dataFinal" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-2">
+							<label for="dependencia"><b>Dependência</b></label>
+						</div>
+						<div class="col-4">
+							<input type="number" name="dependencia" id="dependencia" class="form-control" />
+						</div>
+					</div>
+					<br />
+					<button type="submit" class="btn btn-success">
+						Salvar <i class="fa fa-plus-square" aria-hidden="true"></i>
+					</button>
+					<a th:href="@{/cronograma/listar}" class="btn btn-primary">Listar Cronogramas/projeto</a>
+				</form>
+			</div>
+			<div th:if="${message!=null}" class="card-footer bg-white text-success">
+				<span th:text="${message}"></span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
